@@ -1,20 +1,17 @@
-from fastapi import APIRouter, status, HTTPException
+from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
 
 router = APIRouter(
     prefix="/ikastaroak",
-    tags=["ikastaroak"]
+    tags=["Ikastaroak"]
 )
 
-# 4. Ariketako datu-base simulatua
 ikastaroak_db = [
     {"id": 1, "izena": "ikastaro1", "prezioa": 50, "maila": "hasiberria"},
     {"id": 2, "izena": "ikastaro2", "prezioa": 100, "maila": "hasiberria"},
     {"id": 3, "izena": "ikastaro3", "prezioa": 150, "maila": "aurreratua"},
 ]
 
-
-# 5. Ariketako Pydantic eredua
 class IkastaroaSarrera(BaseModel):
     izena: str
     prezioa: float
